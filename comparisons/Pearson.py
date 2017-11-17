@@ -1,7 +1,7 @@
 import math
 
-@staticmethod
-def PearsonCoefficient(prefs, p1, p2):
+
+def pearsonCoefficient(prefs, p1, p2):
     # Get the list of mutually rated items
     si = {}
     for item in prefs[p1]:
