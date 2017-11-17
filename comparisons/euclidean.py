@@ -1,11 +1,16 @@
+# comparison/__init__.py
+
 from math import sqrt
 
 
-@staticmethod
-def euclideanDist(a, b):
-    return sqrt(a ** 2 + b ** 2)
+# Returns a distance-based similarity score for person1 and person2
+def distance(prefs, person1, person2):
+    sum = 0
 
+    for item in prefs[person1]:
+        if item in prefs[person2]:
+            sum += (prefs[person1][item] - prefs[person2][item]) ** 2
 
-@staticmethod
-def invEuclideanDist(a, b):
-    return 1 / (1 + euclideanDist(a, b))
+    # Add up the squares of all the differences
+
+    return 1 / (1 + sqrt(sum))
